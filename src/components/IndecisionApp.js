@@ -1,9 +1,9 @@
 import React from 'react';
 
+import Header from './Header';
+import Action from './Action';
 import AddOption from './AddOption';
 import Options from './Options';
-import Action from './Action';
-import Header from './Header';
 import OptionModal from './OptionModal';
 
 class IndecisionApp extends React.Component {

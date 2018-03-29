@@ -1,7 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import IndecisionApp from './components/IndecisionApp';
+import { Provider } from 'react-redux';
 import 'normalize.css/normalize.css';
+
+import configureStore from './store/configureStore';
+import IndecisionApp from './components/IndecisionApp';
 import './styles/styles.scss';
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+const store = configureStore();
+
+const jsx = (
+  <Provider store={store}>
+    <IndecisionApp />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
