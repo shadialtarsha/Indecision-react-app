@@ -1,12 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Option from './Option';
+import { removeAll } from '../actions/options';
 
 const Options = props => (
   <div>
     <div className="widget-header">
       <h3 className="widget-header__title">Your Options</h3>
-      <button onClick={props.onRemoveAll} className="button button--link">
+      <button
+        onClick={() => {
+          props.onRemoveAll();
+        }}
+        className="button button--link"
+      >
         RemoveAll
       </button>
     </div>
@@ -19,4 +26,12 @@ const Options = props => (
   </div>
 );
 
-export default Options;
+const mapStateToProps = state => ({
+  options: state.options,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onRemoveAll: () => dispatch(removeAll()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Options);

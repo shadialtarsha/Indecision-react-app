@@ -1,10 +1,14 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
+import { resetOption } from '../actions/selectedOption';
 
 const OptionModal = props => (
   <Modal
     isOpen={!!props.selectedOption}
-    onRequestClose={props.onDeleteSelectedOption}
+    onRequestClose={() => {
+      props.resetOption();
+    }}
     ariaHideApp={false}
     contentLabel="Selected Option"
     closeTimeoutMS={200}
@@ -12,10 +16,23 @@ const OptionModal = props => (
   >
     <h3 className="modal__title">Selected Option</h3>
     {props.selectedOption && <p className="modal__body">{props.selectedOption}</p>}
-    <button className="button" onClick={props.onDeleteSelectedOption}>
+    <button
+      className="button"
+      onClick={() => {
+        props.resetOption();
+      }}
+    >
       Okay
     </button>
   </Modal>
 );
 
-export default OptionModal;
+const mapStateToProps = state => ({
+  selectedOption: state.selectedOption,
+});
+
+const mapDispatchToProps = dispatch => ({
+  resetOption: () => dispatch(resetOption()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(OptionModal);

@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeOption } from '../actions/options';
 
 const Option = props => (
   <div className="option">
@@ -11,4 +13,8 @@ const Option = props => (
   </div>
 );
 
-export default Option;
+const mapDispatchToProps = dispatch => ({
+  onRemove: option => dispatch(removeOption(option)),
+});
+
+export default connect(undefined, mapDispatchToProps)(Option);

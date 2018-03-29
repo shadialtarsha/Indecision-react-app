@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addOption } from '../actions/options';
 
-export default class AddOption extends Component {
+class AddOption extends Component {
   state = { error: undefined };
 
   handleAddOption = event => {
     event.preventDefault();
     const option = event.target.option.value.trim();
-    const error = this.props.onAddOption(option);
+    let error;
+    if (!option) {
+      error = 'Enter valid value to add item';
+    } else if (this.props.options.indexOf(option) > -1) {
+      error = 'This option is already exists';
+    } else {
+      this.props.onAddOption(option);
+    }
     this.setState(() => ({ error }));
     if (!error) {
       event.target.option.value = '';
@@ -24,3 +33,13 @@ export default class AddOption extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  options: state.options,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onAddOption: option => dispatch(addOption(option)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddOption);
