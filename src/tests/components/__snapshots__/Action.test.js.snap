@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Action correctly with no options 1`] = `
+<div>
+  <button
+    className="big-button"
+    disabled={true}
+    onClick={[Function]}
+  >
+    What Should I do?
+  </button>
+</div>
+`;
+
+exports[`should render Action correctly with options 1`] = `
+<div>
+  <button
+    className="big-button"
+    disabled={false}
+    onClick={[Function]}
+  >
+    What Should I do?
+  </button>
+</div>
+`;

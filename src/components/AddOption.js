@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addOption } from '../actions/options';
 
-class AddOption extends Component {
-  state = { error: undefined };
+export class AddOption extends Component {
+  state = {
+    option: '',
+    error: undefined,
+  };
+
+  onInputChange = event => {
+    const option = event.target.value;
+    this.setState(() => ({ option }));
+  };
 
   handleAddOption = event => {
     event.preventDefault();
-    const option = event.target.option.value.trim();
+    const option = this.state.option.trim();
     let error;
     if (!option) {
       error = 'Enter valid value to add item';
@@ -18,15 +26,23 @@ class AddOption extends Component {
     }
     this.setState(() => ({ error }));
     if (!error) {
-      event.target.option.value = '';
+      this.setState(() => ({ option: '' }));
     }
   };
+
   render() {
     return (
       <div>
         {this.state.error && <p className="add-option-error">{this.state.error}</p>}
         <form className="add-option-form" onSubmit={this.handleAddOption}>
-          <input className="add-option-form__input" type="text" name="option" />
+          <input
+            className="add-option-form__input"
+            value={this.state.option}
+            onChange={this.onInputChange}
+            type="text"
+            name="option"
+            placeholder="Your option"
+          />
           <button className="button">Add Option</button>
         </form>
       </div>

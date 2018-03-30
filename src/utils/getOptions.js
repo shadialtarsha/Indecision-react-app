@@ -1,11 +1,11 @@
-const getOptions = () => {
+const getOptions = (key = 'options') => {
   try {
-    const options = JSON.parse(localStorage.getItem('options'));
+    const options = JSON.parse(localStorage.getItem(key));
     if (options) {
       return options;
     }
   } catch (e) {
-    console.log(e);
+    return [];
   }
 };
 

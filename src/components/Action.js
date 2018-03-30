@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { selectOption } from '../actions/selectedOption';
 import pickOption from '../selectors/pickOption';
 
-const Action = props => (
+export const Action = props => (
   <div>
     <button
       className="big-button"

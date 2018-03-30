@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { removeOption } from '../actions/options';
 
-const Option = props => (
+export const Option = props => (
   <div className="option">
     <p className="option__text">
       {props.count}. {props.optionText}

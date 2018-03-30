@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Option from './Option';
 import { removeAll } from '../actions/options';
 
-const Options = props => (
+export const Options = props => (
   <div>
     <div className="widget-header">
       <h3 className="widget-header__title">Your Options</h3>

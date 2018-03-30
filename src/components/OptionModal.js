@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { resetOption } from '../actions/selectedOption';
 
-const OptionModal = props => (
+export const OptionModal = props => (
   <Modal
     isOpen={!!props.selectedOption}
     onRequestClose={() => {

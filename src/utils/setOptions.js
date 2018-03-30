@@ -1,5 +1,5 @@
-const setOptions = options => {
-  localStorage.setItem('options', JSON.stringify(options));
+const setOptions = (key = 'options', options) => {
+  localStorage.setItem(key, JSON.stringify(options));
 };
 
 export default setOptions;
