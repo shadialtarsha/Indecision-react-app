@@ -5,6 +5,7 @@ import 'normalize.css/normalize.css';
 
 import configureStore from './store/configureStore';
 import IndecisionApp from './components/IndecisionApp';
+import { firebase } from './firebase/firebase';
 import './styles/styles.scss';
 
 const store = configureStore();
