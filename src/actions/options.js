@@ -67,7 +67,7 @@ export const startSetOptions = () => (dispatch, getState) => {
       snapshot.forEach(childSnapshot => {
         options.push({
           id: childSnapshot.key,
-          text: childSnapshot.val(),
+          text: childSnapshot.val().text,
         });
       });
       dispatch(setOptions(options));
