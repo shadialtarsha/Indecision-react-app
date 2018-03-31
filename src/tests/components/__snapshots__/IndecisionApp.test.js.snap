@@ -2,9 +2,8 @@
 
 exports[`should render IndecisionApp correctly 1`] = `
 <div>
-  <Header
+  <Connect(Header)
     subtitle="Put your life in the hands of computer"
-    title="Indecision"
   />
   <div
     className="container"

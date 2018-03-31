@@ -5,18 +5,25 @@ exports[`should render Header correctly 1`] = `
   className="header"
 >
   <div
-    className="container"
+    className="container header__container"
   >
-    <h1
-      className="header__title"
+    <div>
+      <h1
+        className="header__title"
+      >
+        new Title
+      </h1>
+      <h2
+        className="header__subtitle"
+      >
+        new subtitle
+      </h2>
+    </div>
+    <button
+      className="button button--link"
     >
-      new Title
-    </h1>
-    <h2
-      className="header__subtitle"
-    >
-      new subtitle
-    </h2>
+      Logout
+    </button>
   </div>
 </div>
 `;
@@ -26,18 +33,25 @@ exports[`should render Header with default title correctly 1`] = `
   className="header"
 >
   <div
-    className="container"
+    className="container header__container"
   >
-    <h1
-      className="header__title"
+    <div>
+      <h1
+        className="header__title"
+      >
+        Indecision
+      </h1>
+      <h2
+        className="header__subtitle"
+      >
+        new subtitle
+      </h2>
+    </div>
+    <button
+      className="button button--link"
     >
-      Indecision
-    </h1>
-    <h2
-      className="header__subtitle"
-    >
-      new subtitle
-    </h2>
+      Logout
+    </button>
   </div>
 </div>
 `;

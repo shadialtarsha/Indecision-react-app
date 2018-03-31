@@ -5,7 +5,7 @@ import options from '../fixtures/options';
 
 test('should render OptionModal correctly with option', () => {
   const option = options[0];
-  const wrapper = shallow(<OptionModal selectedOption={option} />);
+  const wrapper = shallow(<OptionModal selectedOption={option.text} />);
   expect(wrapper).toMatchSnapshot();
 });
 

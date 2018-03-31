@@ -46,18 +46,33 @@ exports[`should render Options correctly with options data 1`] = `
   <div>
     <Connect(Option)
       count={1}
-      key="Buy a car"
-      optionText="Buy a car"
+      key="1"
+      option={
+        Object {
+          "id": "1",
+          "text": "Buy a car",
+        }
+      }
     />
     <Connect(Option)
       count={2}
-      key="Go Shopping"
-      optionText="Go Shopping"
+      key="2"
+      option={
+        Object {
+          "id": "2",
+          "text": "Go Shopping",
+        }
+      }
     />
     <Connect(Option)
       count={3}
-      key="Swimming"
-      optionText="Swimming"
+      key="3"
+      option={
+        Object {
+          "id": "3",
+          "text": "Swimming",
+        }
+      }
     />
   </div>
 </div>

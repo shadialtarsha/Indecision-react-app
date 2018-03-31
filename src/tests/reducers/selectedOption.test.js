@@ -7,7 +7,7 @@ test('should select the passed option', () => {
     type: 'SELECT_OPTION',
     option,
   };
-  expect(selectedOptionReducer(options, action)).toBe(option);
+  expect(selectedOptionReducer(options, action)).toBe(option.text);
 });
 
 test('should reset the selected option', () => {
