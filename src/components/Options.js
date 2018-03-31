@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Option from './Option';
-import { removeAll } from '../actions/options';
+import { startRemoveAll } from '../actions/options';
 
 export const Options = props => (
   <div>
@@ -20,7 +20,7 @@ export const Options = props => (
     {props.options.length === 0 && <p className="widget__message">Please add an option to get started!</p>}
     <div>
       {props.options.map((option, index) => (
-        <Option key={option} count={index + 1} optionText={option} onRemove={props.onRemove} />
+        <Option key={option.id} count={index + 1} option={option} onRemove={props.onRemove} />
       ))}
     </div>
   </div>
@@ -31,7 +31,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onRemoveAll: () => dispatch(removeAll()),
+  onRemoveAll: () => dispatch(startRemoveAll()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Options);

@@ -5,6 +5,12 @@
     padding: $m-size 0;
 }
 
+.header__container{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
 .header__title{
     font-size: $l-size;
     margin: 0;

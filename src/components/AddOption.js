@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addOption } from '../actions/options';
+import { startAddOption } from '../actions/options';
 
 export class AddOption extends Component {
   state = {
@@ -19,7 +19,7 @@ export class AddOption extends Component {
     let error;
     if (!option) {
       error = 'Enter valid value to add item';
-    } else if (this.props.options.indexOf(option) > -1) {
+    } else if (this.props.options.map(op => op.text).indexOf(option) > -1) {
       error = 'This option is already exists';
     } else {
       this.props.onAddOption(option);
@@ -55,7 +55,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onAddOption: option => dispatch(addOption(option)),
+  onAddOption: option => dispatch(startAddOption(option)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddOption);
